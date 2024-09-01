@@ -1,5 +1,6 @@
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.router.js";
+import listingRouter from "./routes/listing.router.js"
 import cors from "cors";
 import connectDB from "../DB/connection.js";
 import { globalErrorHandling } from './utils/errorHandling.js'
@@ -10,6 +11,7 @@ const initApp = (app, express) => {
 
   app.use("/api/user", userRouter);
   app.use("/api/auth", authRouter);
+  app.use("/api/listing", listingRouter);
 
   // Catch-all route for invalid URLs
   app.all("*", (req, res, next) => {
