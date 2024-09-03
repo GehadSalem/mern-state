@@ -4,8 +4,11 @@ import listingRouter from "./routes/listing.router.js"
 import cors from "cors";
 import connectDB from "../DB/connection.js";
 import { globalErrorHandling } from './utils/errorHandling.js'
+import path from 'path'
+
 
 const initApp = (app, express) => {
+  const __direname = path.resolve();
   app.use(cors());
   app.use(express.json({}));
 
@@ -13,10 +16,10 @@ const initApp = (app, express) => {
   app.use("/api/auth", authRouter);
   app.use("/api/listing", listingRouter);
 
-
+app.use(express.static(path.join(__direname, '/client/dist')))
   // Catch-all route for invalid URLs
   app.all("*", (req, res, next) => {
-    res.send("In-valid Routing Plz check url or method");
+    res.sendFile(path.join(__direname, 'client', 'dist', 'index.html'));
   });
 
   //global error handling
