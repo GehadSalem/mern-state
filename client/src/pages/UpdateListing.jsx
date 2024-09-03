@@ -8,6 +8,7 @@ import {
 import { app } from "../firebase.js";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import Loading from "../components/Loading.jsx";
 export default function UpdateListing() {
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -172,6 +173,7 @@ export default function UpdateListing() {
 
   return (
     <main className="p-3 max-w-4xl mx-auto">
+      {loading && <Loading />}
       <h1 className="text-3xl font-semibold text-center my-7">
       Update Listing
       </h1>
@@ -368,8 +370,8 @@ export default function UpdateListing() {
                 </button>
               </div>
             ))}
-          <button disabled={loading || uploading} className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
-            {loading ? "Creating..." : "Update Listing"}
+          <button disabled={loading || uploading} className="p-3 bg-emerald-700 text-white rounded-lg uppercase hover:scale-105 transition-scale duration-300 cursor-pointer disabled:opacity-80">
+            {loading ? "Updating..." : "Update Listing"}
           </button>
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>

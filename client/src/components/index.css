@@ -1,8 +1,7 @@
-
-  .line {
+.line {
     width: 15px;
   }
-
+  
   .load-2 .line:nth-last-child(1) {
     animation: loadingB 1.5s 1s infinite;
   }
@@ -12,9 +11,9 @@
   .load-2 .line:nth-last-child(3) {
     animation: loadingB 1.5s 0s infinite;
   }
-
+  
   @keyframes loadingB {
-    0 {
+    0% {
       width: 15px;
     }
     50% {

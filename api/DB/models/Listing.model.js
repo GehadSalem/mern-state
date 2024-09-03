@@ -30,6 +30,11 @@ const ListingSchema = new Schema(
       type: Number,
       required: true,
     },
+    status:{
+      type: String,
+      default: 'active',
+      enum: ['active', 'deactivated']
+  },
     furnished: {
       type: Boolean,
       required: true,

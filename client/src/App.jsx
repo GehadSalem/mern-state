@@ -10,6 +10,10 @@ import PrivetRoute from "./components/PrivetRoute.jsx";
 import CreateListing from "./pages/CreateListing.jsx";
 import UpdateListing from "./pages/UpdateListing.jsx";
 import Listing from "./pages/Listing.jsx";
+import Search from "./pages/Search.jsx";
+import Listings from "./pages/Listings.jsx";
+import Footer from "./components/Footer.jsx";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,6 +24,8 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
         <Route path="/listing/:id" element={<Listing />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/listings" element={<Listings />} />
 
         <Route element={<PrivetRoute />}>
           <Route path="/profile" element={<Profile />} />
@@ -27,6 +33,7 @@ export default function App() {
           <Route path="/update-listing/:id" element={<UpdateListing />} />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -57,3 +57,17 @@ export const getUserListing = asyncHandler(async(req,res,next)=>{
         return next(new Error(`you can view only your listings!`), { cause: 401 });
     }
 })
+
+
+export const getUser = asyncHandler(async(req,res,next)=>{
+    try {
+        const user = await userModel.findById(req.params.id);
+    if (!user) {
+        return next(new Error(`User not found!`), { cause: 401 });
+    }
+    const {password:pass, ...rest} = user._doc;
+    res.status(200).json(user)
+    } catch (error) {
+        next(error)
+    }
+})

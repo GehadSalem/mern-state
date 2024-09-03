@@ -13,6 +13,7 @@ const initApp = (app, express) => {
   app.use("/api/auth", authRouter);
   app.use("/api/listing", listingRouter);
 
+
   // Catch-all route for invalid URLs
   app.all("*", (req, res, next) => {
     res.send("In-valid Routing Plz check url or method");

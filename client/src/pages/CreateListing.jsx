@@ -158,6 +158,7 @@ export default function CreateListing() {
 
   return (
     <main className="p-3 max-w-4xl mx-auto">
+      
       <h1 className="text-3xl font-semibold text-center my-7">
         Create a Listing
       </h1>
@@ -354,7 +355,7 @@ export default function CreateListing() {
                 </button>
               </div>
             ))}
-          <button disabled={loading || uploading} className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80">
+          <button disabled={loading || uploading} className="p-3 bg-emerald-700 text-white rounded-lg uppercase hover:scale-105 transition-scale duration-300 cursor-pointer disabled:opacity-80">
             {loading ? "Creating..." : "Create Listing"}
           </button>
           {error && <p className="text-red-700 text-sm">{error}</p>}
